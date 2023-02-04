@@ -22,6 +22,5 @@ int main()
 
     result = operator_precedence_2(num1, num2, num3);
     cout<<"Result is: "<<result<<"\n";
-
     return 0;
 }
