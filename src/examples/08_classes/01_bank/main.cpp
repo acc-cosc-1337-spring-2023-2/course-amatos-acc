@@ -8,12 +8,20 @@ using std::cin;
 
 int main()
 {
-	auto choice = 'c';
+	BankAccount *account; //Assign the variable to point to later
 	srand(time(NULL));
 
 	SavingsAccount savings;
-	CheckingAccount account;
+	show_balance(savings);
+	cout<<savings.get_balance()<<"\n";
 
+	account = &savings; //point to the memory of savings
+	cout<<account->get_balance()<<"\n";
+
+	CheckingAccount checking;
+
+/*
+	auto choice = 'c';
 	cout<<"Checking or Savings: ";
 	cin>>choice;
 
@@ -26,6 +34,6 @@ int main()
 		cout<<savings.get_balance()<<"\n";
 		run_menu(savings);
 	}
-
+*/
 	return 0;
 }
