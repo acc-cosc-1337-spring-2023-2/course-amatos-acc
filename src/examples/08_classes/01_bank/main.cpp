@@ -1,39 +1,30 @@
 #include<iostream>
+#include<vector>
+
 #include "checking_account.h"
 #include "savings_account.h"
 #include "atm.h"
 
 using std::cout;
 using std::cin;
+using std::vector;
 
 int main()
 {
-	BankAccount *account; //Assign the variable to point to later
+	vector<BankAccount*> accounts; //create empty list of BankAccount pointers
+	
 	srand(time(NULL));
-
 	SavingsAccount savings;
-	show_balance(savings);
-	cout<<savings.get_balance()<<"\n";
-
-	account = &savings; //point to the memory of savings
-	cout<<account->get_balance()<<"\n";
-
 	CheckingAccount checking;
+	
+	accounts.push_back(&checking);
+	accounts.push_back(&savings);
 
-/*
-	auto choice = 'c';
-	cout<<"Checking or Savings: ";
-	cin>>choice;
-
-	if (choice == 'c' || choice == 'C') {
-		cout<<account;
-		cout<<account.get_balance()<<"\n";
-		run_menu(account);
-	} else {
-		cout<<savings;
-		cout<<savings.get_balance()<<"\n";
-		run_menu(savings);
+	for (auto account: accounts) {
+		cout<<account->get_balance()<<"\n";
 	}
-*/
+
+	run_menu(accounts);
+	
 	return 0;
 }

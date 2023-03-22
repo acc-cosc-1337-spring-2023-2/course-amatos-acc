@@ -1,12 +1,10 @@
 //atm.h
 #include<iostream>
+#include<vector>
 #include "bank_account.h"
 
-
-void run_menu(BankAccount &account);
-
+using std::vector;
 
 void display_menu();
-
-
-void handle_menu_option(int option, BankAccount &account);
+void run_menu(vector<BankAccount*> accounts);
+void handle_menu_option(int option, BankAccount *account);
