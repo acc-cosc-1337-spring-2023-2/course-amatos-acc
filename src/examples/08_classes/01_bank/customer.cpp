@@ -3,7 +3,8 @@
 
 using std::make_unique;
 
-Customer::Customer() {
+Customer::Customer()
+{
     accounts.push_back(make_unique<CheckingAccount>());
     accounts.push_back(make_unique<SavingsAccount>());
 }
