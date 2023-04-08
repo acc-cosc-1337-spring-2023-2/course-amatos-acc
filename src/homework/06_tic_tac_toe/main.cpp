@@ -1,40 +1,42 @@
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 
-//return true if player is "X" or "O"
-bool validPlayer(string player) {
-	return player == "X" || player == "O";
-}
+void displayGameTotals(TicTacToeManager manager) {
+	int o = 0;
+	int x = 0;
+	int t = 0;
 
-//return true is position is 1 thru 9
-bool validPosition(int position) {
-	return position >= 1 && position <= 9;
+	manager.get_winner_total(o, x, t);
+
+	cout<<"O wins: "<<o<<"\n";
+	cout<<"X wins: "<<x<<"\n";
+	cout<<"TIES: "<<t<<"\n";
+
 }
 
 int main() 
 {
-	TicTacToe board;
+	TicTacToeManager manager;
+	TicTacToe game;
 
 	bool keep_going = true;
 	string player;
-	double position;
 	auto response = 'Y';
 
 	while (keep_going) {
 		cout<<"Enter X or O: ";
 		cin>>player;
-		if (validPlayer(player)) {
-			board.start_game(player);
-			while (!board.game_over()) {
-				cout<<"Enter a position from 1 to 9: ";
-				cin>>position;
-				if (validPosition(position)) {
-					board.mark_board(position);
-					board.display_board();
-				} else {
-					cout<<"Invalid input\n";
-				}
+		if (player == "X" || player == "O") {
+			game.start_game(player);
+			while (!game.game_over()) {
+				cin>>game;
+				cout<<game;
 			}
-			cout<<"Game Over! The winner is: "<<board.get_winner()<<"\n\n";
+			manager.save_game(game);
+			cout<<"Game Over!\n\n";
+
+			displayGameTotals(manager);
+
 			cout<<"New game? Y/N: ";
 			cin>>response;
 			if (!(response == 'Y' || response == 'y')) {
@@ -45,5 +47,10 @@ int main()
 			cout<<"Invalid input!\n";
 		}
 	}
+
+	cout<<"Board History\n";
+	cout<<manager;
+	displayGameTotals(manager);
+
 	return 0;
 }
