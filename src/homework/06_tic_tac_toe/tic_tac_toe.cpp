@@ -20,7 +20,7 @@ bool TicTacToe::check_board_full() {
 };
 
 void TicTacToe::clear_board() {
-    pegs = {" "," "," "," "," "," "," "," "," "};
+    pegs.assign(pegs.size(), " ");
 };
 
 //public functions
@@ -126,9 +126,10 @@ string TicTacToe::get_winner() {
 std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
 {
     int counter = 1;
+    int columns = game.pegs.size() == 9 ? 3 : 4;
     for (string peg: game.pegs) {
         out<<peg;
-        if (counter % 3 == 0) {
+        if (counter % columns == 0) {
             out<<"\n";
         } else {
             out<<"|";
@@ -141,9 +142,10 @@ std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
 std::istream& operator>>(std::istream& in, TicTacToe& game) 
 {
     int position;
-    cout<<"Enter a position from 1 to 9: ";
+    int size = game.pegs.size();
+    cout<<"Enter a position from 1 to "<<size<<": ";
     in>>position;
-	if (position >= 1 && position <= 9) {
+	if (position >= 1 && position <= size) {
 		game.mark_board(position);
 	} else {
 		cout<<"Invalid input\n";
