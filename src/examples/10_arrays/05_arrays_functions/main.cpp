@@ -5,15 +5,12 @@ using std::cout;
 
 int main() 
 {
-	//create dynamic memory
-	int* num = new int(5); //creates dynamic memory; 5 is in heap memory
+	//limit_dynamic_memory_scope(3);
+	cout<<"load to stack\n";
 
-	//use the memory(data) - limit the scope
-	cout<<*num<<"\n";
+	use_dynamic_array(3);
 
-
-	//delete
-	delete num;
+	cout<<"unloaded from stack\n";
 
 	return 0;
 }
