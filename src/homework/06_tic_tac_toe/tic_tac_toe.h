@@ -1,5 +1,6 @@
 //h
 #include<string>
+#include<fstream>
 #include<vector>
 #include<iostream>
 #include<memory>
@@ -7,6 +8,8 @@
 using std::string;
 using std::ostream;
 using std::istream;
+using std::ifstream;
+using std::ofstream;
 using std::vector;
 using std::cout;
 using std::cin;
@@ -34,11 +37,13 @@ class TicTacToe {
 
     public:
         TicTacToe(int size) : pegs(size*size, " ") {};
+        TicTacToe(vector<string> p, string win) : pegs(p), winner(win) {};
         bool game_over();
         void start_game(string first_player);
         void mark_board(int position);
         string get_player() const;
         string get_winner();
+        vector<string>get_pegs() const {return pegs; };
 
     protected:
         vector<string> pegs;
