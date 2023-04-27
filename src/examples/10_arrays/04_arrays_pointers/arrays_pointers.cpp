@@ -30,10 +30,10 @@ int ArrayList::Get_First_Index_Of(int value) {
 void ArrayList::Delete(int value) {
     auto index = Get_First_Index_Of(value);
 
-    AdjustElements(index);
+    //AdjustElements(index);
 }
 
-void ArrayList::AdjustElements(index) {
+//void ArrayList::AdjustElements(index) {
     // if current_index equals current_index - 1 then
     //   set current_index = current_index - 1
     // else
@@ -43,4 +43,4 @@ void ArrayList::AdjustElements(index) {
     //      add 1 to i
     //    end loop
     //    subtract current_index = current_index - 1
-}
+//}

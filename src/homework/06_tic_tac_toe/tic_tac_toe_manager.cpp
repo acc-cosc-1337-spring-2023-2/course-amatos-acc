@@ -2,7 +2,7 @@
 
 void TicTacToeManager::save_game(unique_ptr<TicTacToe>& game) {
     update_winner_count(game->get_winner());
-    games.push_back(move(game));
+    //games.push_back(move(game));
 }
 
 void TicTacToeManager::get_winner_total(int& o, int& x, int& t) {
@@ -22,20 +22,20 @@ void TicTacToeManager::update_winner_count(string winner) {
 }
 
 ostream& operator<<(ostream& out, const TicTacToeManager& manager) {
-    for (auto& game: manager.games) {
-        out<<*game<<"\n";
-    }
-    return out;
+    // for (auto& game: manager.games) {
+    //     out<<*game<<"\n";
+    // }
+    // return out;
 }
 
 TicTacToeManager::TicTacToeManager(TicTacToeData &data) {
-    games = data.get_games();
+    // games = data.get_games();
 
-    for(auto& game: games) {
-        update_winner_count(game->get_winner());
-    }
+    // for(auto& game: games) {
+    //     update_winner_count(game->get_winner());
+    // }
 };
 
 TicTacToeManager::~TicTacToeManager() {
-    data.save_games(games);
+    // data.save_games(games);
 }

@@ -17,3 +17,9 @@ void use_vector() {
 
     Vector v(3);
 }
+
+Vector get_vector() {
+    Vector v(3);
+    return v;
+}
+

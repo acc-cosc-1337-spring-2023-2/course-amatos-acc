@@ -31,7 +31,7 @@ int main()
 	cout<<"Num value: "<<num<<"\n";
 	cout<<"Value that num_prt points to: "<<*num_ptr<<"\n";
 
-	auto num1 = 10;
+	//auto num1 = 10;
 	num_ptr = &num1; //point to the address of variable num1
 	cout<<"Num address is: "<<&num1<<"\n";
 	cout<<"Address that num_ptr points to: "<<num_ptr<<"\n";

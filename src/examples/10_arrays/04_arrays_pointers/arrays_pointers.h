@@ -15,7 +15,7 @@ class ArrayList {
         int current_index{0};
         int capacity;
         int* elements;
-        void AdjustElements(index);
+        //void AdjustElements(index);
 };
 
 #endif

@@ -12,7 +12,7 @@ class TicTacToeManager {
     friend std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager);
 
     private:
-        vector<unique_ptr<TicTacToe>> games;
+        //vector<unique_ptr<TicTacToe>> games;
         int x_win = 0;
         int o_win = 0;
         int ties = 0;

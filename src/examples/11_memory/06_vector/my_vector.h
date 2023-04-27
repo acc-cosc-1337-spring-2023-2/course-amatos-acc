@@ -24,3 +24,4 @@ class Vector {
 #endif
 
 void use_vector();
+Vector get_vector();
